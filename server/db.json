@@ -1,0 +1,60 @@
+{
+  "superheroes": [
+    {
+      "id": 1,
+      "nombre": "bruce wayne",
+      "alias": "batman",
+      "editorial": "DC",
+      "fuerza": 470,
+      "arma": "Flechas"
+    },
+    {
+      "nombre": "clark",
+      "alias": "superman",
+      "editorial": "DC",
+      "fuerza": 505,
+      "arma": "Armadura",
+      "id": 2
+    },
+    {
+      "nombre": "bruce",
+      "alias": "hulk",
+      "editorial": "Marvel",
+      "fuerza": 911,
+      "arma": "Arma de Fuego",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "nombre": "Peter",
+      "alias": "Spiderman",
+      "editorial": "Marvel",
+      "fuerza": 471,
+      "arma": "Armadura"
+    },
+    {
+      "id": 7,
+      "nombre": "Samuel L. Jackson",
+      "alias": "Nick Fury",
+      "editorial": "Marvel",
+      "fuerza": 245,
+      "arma": "Arma de Fuego"
+    },
+    {
+      "nombre": "ddd",
+      "alias": "dddd",
+      "editorial": "Marvel",
+      "fuerza": 314,
+      "arma": "Armadura",
+      "id": 8
+    }
+  ],
+  "armas": [
+    "Armadura",
+    "Espada",
+    "Martillo",
+    "Escudo",
+    "Arma de Fuego",
+    "Flechas"
+  ]
+}

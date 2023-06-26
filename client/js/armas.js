@@ -1,0 +1,1 @@
+export const listaArmas = ["Armadura", "Espada", "Martillo", "Escudo", "Arma de Fuego", "Flechas"];
