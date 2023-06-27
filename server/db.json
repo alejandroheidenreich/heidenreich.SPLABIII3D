@@ -2,31 +2,31 @@
   "superheroes": [
     {
       "id": 1,
-      "nombre": "bruce wayne",
-      "alias": "batman",
+      "nombre": "Bruce Wayne",
+      "alias": "Batman",
       "editorial": "DC",
       "fuerza": 470,
       "arma": "Flechas"
     },
     {
-      "nombre": "clark",
-      "alias": "superman",
+      "id": 2,
+      "nombre": "Clark Kent",
+      "alias": "Superman",
       "editorial": "DC",
-      "fuerza": 505,
-      "arma": "Armadura",
-      "id": 2
+      "fuerza": 729,
+      "arma": "Armadura"
     },
     {
-      "nombre": "bruce",
-      "alias": "hulk",
+      "id": 3,
+      "nombre": "Bruce Banner",
+      "alias": "Hulk",
       "editorial": "Marvel",
       "fuerza": 911,
-      "arma": "Arma de Fuego",
-      "id": 3
+      "arma": "Armadura"
     },
     {
       "id": 4,
-      "nombre": "Peter",
+      "nombre": "Peter Parker",
       "alias": "Spiderman",
       "editorial": "Marvel",
       "fuerza": 471,
@@ -41,12 +41,28 @@
       "arma": "Arma de Fuego"
     },
     {
-      "nombre": "ddd",
-      "alias": "dddd",
+      "nombre": "Tony Stark",
+      "alias": "Ironman",
       "editorial": "Marvel",
-      "fuerza": 314,
+      "fuerza": 704,
       "arma": "Armadura",
       "id": 8
+    },
+    {
+      "id": 9,
+      "nombre": "Barry Allen",
+      "alias": "Flash",
+      "editorial": "DC",
+      "fuerza": 610,
+      "arma": "Espada"
+    },
+    {
+      "id": 10,
+      "nombre": "Roberto Perez",
+      "alias": "Argentoman",
+      "editorial": "DC",
+      "fuerza": 0,
+      "arma": "Arma de Fuego"
     }
   ],
   "armas": [

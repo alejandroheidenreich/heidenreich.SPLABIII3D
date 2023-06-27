@@ -40,17 +40,16 @@ function validarArma(arma) {
 }
 
 export function ordenarListaPorCriterio(lista, criterio, orden) {
-    let auxiliar;
-    for (let i = 0; i < lista.length; i++) {
-        for (let j = i + 1; j < lista.length; j++) {
-            if ((!orden && (lista[i][criterio]).toLowerCase() > (lista[j][criterio]).toLowerCase()) || (orden && (lista[i][criterio]).toLowerCase() < (lista[j][criterio]).toLowerCase())) {
-                auxiliar = lista[i];
-                lista[i] = lista[j];
-                lista[j] = auxiliar;
-            }
-        }
-    }
-}
+    lista.sort((a, b) => {
+      if ((!orden && a[criterio] > b[criterio]) || (orden && a[criterio] < b[criterio])) {
+        return 1;
+      } else if ((!orden && a[criterio] < b[criterio]) || (orden && a[criterio] > b[criterio])) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  }
 
 export function obtenerUltimoID(lista) {
     let ultimoID = 0;

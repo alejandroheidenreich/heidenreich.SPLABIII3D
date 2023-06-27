@@ -1,4 +1,4 @@
-import { actualizarTabla } from './tabla.js';
+import { actualizarTabla,crearSpinner} from './tabla.js';
 import { SuperHeroe, ordenarListaPorCriterio, obtenerUltimoID } from './superheroe.js';
 import { crearFormulario } from './formulario.js';
 import { getAllinTableAjax, getAllAjax, getOneAjax, createSuperHeroeAjax, updateSuperHeroeAjax, deleteSuperHeroeAjax } from './ajax.js';
@@ -15,44 +15,12 @@ const $seccionFormulario = document.getElementById('formulario');
 const colorHeader = "darkorange";
 const identificador = "id";
 const titulo = "Lista de Super Heroes";
-
-const spinnerTabla = document.createElement('span');
-spinnerTabla.classList.add('loader');
-spinnerTabla.id = "spinnerTabla";
-spinnerTabla.style.setProperty("display", "block");
-$seccionTabla.appendChild(spinnerTabla);
-
+const spinnerTabla = crearSpinner($seccionTabla);
 let ordenActivo;
 
 
-
-
-// select.addEventListener('change', async (e) => {
-//     const tabla = document.getElementById('tablita');
-//     spinnerTabla.style.setProperty("display", "block");
-//     tabla.style.setProperty("display", "none");
-//     $selectEditorial.style.setProperty("display", "none");
-//     const superheroes = await getAllFetch(URL);
-//     const seleccion = e.target.value;
-//     ultimoSelect = seleccion;
-//     console.log(seleccion);
-//     let listaFiltrada = superheroes;
-//     if (seleccion != "Todos") {
-//         listaFiltrada = superheroes.filter((element) => element.editorial === seleccion);
-//         console.log(listaFiltrada);
-//     }
-//     actualizarTabla($seccionTabla, listaFiltrada, colorHeader, identificador, titulo);
-
-//     spinnerTabla.style.setProperty("display", "none");
-//     tabla.style.setProperty("display", "block");
-//     $selectEditorial.style.setProperty("display", "block");
-// });
-
 //getAllinTableAjax(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
 //getAllinTableAxios(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-
-
-
 getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
 
 
@@ -75,7 +43,9 @@ async function prepararForm() {
 }
 prepararForm();
 
-
+window.addEventListener('submit', (e) => {
+    e.preventDefault();
+});
 
 window.addEventListener('click', (e) => {
     if (e.target.matches('td')) {
@@ -85,7 +55,6 @@ window.addEventListener('click', (e) => {
         handlerSelectedTH(e);
     }
     else if (e.target.matches("input[type='submit']")) {
-        e.preventDefault();
         handlerSubmit();
     }
     else if (e.target.matches("input[type='button']")) {
@@ -152,10 +121,8 @@ function handlerSubmit() {
     console.log("Enviando");
     const $formulario = document.querySelector('form');
     const { txtId, txtNombre, txtAlias, radioEditorial, txtFuerza, selectArma } = $formulario;
-
     try {
         if (txtId.value == '') {
-
             const data = {
                 "nombre": txtNombre.value,
                 "alias": txtAlias.value,
@@ -163,7 +130,6 @@ function handlerSubmit() {
                 "fuerza": parseInt(txtFuerza.value),
                 "arma": selectArma.value
             };
-
             if (confirm("¿Desea cargar el SuperHeroe?")) handlerCreate(data/*newSuper*/);
         } else {
             const updatedSuper = new SuperHeroe(parseInt(txtId.value), txtNombre.value, txtAlias.value, radioEditorial.value, parseInt(txtFuerza.value), selectArma.value);
@@ -177,23 +143,16 @@ function handlerSubmit() {
 
 async function handlerCreate(nuevoSuper) {
     console.log("Creando");
-
     //createSuperHeroeAjax(URL, nuevoSuper);
     ///createSuperHeroeAxios(URL, nuevoSuper)
     createSuperHeroeFetch(URL, nuevoSuper);
-
     //getAllinTableAjax(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
     getAllinTableAxios(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
     //getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-
 }
 
 function handlerUpdate(editSuper) {
     console.log("Actualizando");
-
-    // let index = superheroes.findIndex((s) => s.id == editSuper.id);
-    // superheroes.splice(index, 1, editSuper);
-
     //updateSuperHeroeAjax(URL, editSuper);
     //updateSuperHeroeFetch(URL, editSuper);
     updateSuperHeroeAxios(URL, editSuper);
@@ -261,4 +220,18 @@ function resetFormulario(formulario) {
     formulario.reset();
 }
 
+
+// chrome.runtime.addListener((request, sender, sendResponse) => {
+//     // Verificar si la conexión del canal de mensajes está abierta
+//     if (chrome.runtime.lastError) {
+//       //console.error(chrome.runtime.lastError.message);
+//       return;
+//     }
+  
+//     // Procesar el mensaje y enviar una respuesta asincrónica
+//     // ...
+  
+//     // Enviar la respuesta asincrónica
+//     sendResponse(response);
+//   });
 

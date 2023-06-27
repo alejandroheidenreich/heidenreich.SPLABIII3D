@@ -168,7 +168,8 @@ th
 
 header h1,
 legend,
-.seccion-tabla h2
+.seccion-tabla h2,
+#divFiltros label
 {
     display: inline-block;
     text-align: left;
@@ -186,21 +187,66 @@ main
     align-items: center;
 }
 
-
 .seccion-formulario,
 .seccion-tabla
 {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     margin-top: 2%;
     margin-left: 5%;
 }
 
 .seccion-tabla
 {
-    align-items: top;
+    text-align: left;
+    justify-content: justify;
+    align-items: left;
 }
+
+.seccion-tabla h2
+{
+    margin-left: 25%;
+    padding-right: 0;
+    width: 45%;
+}
+
+.seccion-tabla h3
+{
+    margin-bottom: 1%;
+    padding-right: 0;
+
+}
+
+.selectEditoriales
+{
+    text-align: left;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: darkorange;
+    height: 5%;
+    width: 25%;
+    margin-bottom: 3%;
+}
+
+select option
+{
+    font-weight: bold;
+
+}
+
+#fieldset-tabla
+{
+    background-color: darkorange;
+    text-align: center;
+}
+
+#fieldset-tabla input
+{
+    margin-right: 3%;
+}
+
 
 .group-form
 {
@@ -221,7 +267,9 @@ select
     flex-direction: row;
     align-items: center;
     margin: 0 auto;
+
 }
+
 
 .input-img
 {
@@ -241,6 +289,14 @@ select
 }
 
 .imgForm
+{
+    padding-right: 10%;
+    padding-left: 5%;
+    width: 40px;
+    height: 40px;
+
+}
+form img
 {
     padding-right: 10%;
     padding-left: 5%;
@@ -286,12 +342,29 @@ fieldset
     margin: 250px 500px;
 }
 
-.divFiltros
+
+#divFiltros
 {
     display: flex;
     flex-direction: row;
     justify-content: left;
+    align-items: start;
 }
+
+#divFiltros label,
+h3
+{
+    height: 5%;
+    padding-left: 2%;
+}
+
+#divFiltros h3
+{
+    margin: 0 auto;
+    font-size: medium;
+    margin-top: 9px;
+}
+
 
 .accion,
 .eliminar,
@@ -318,30 +391,18 @@ fieldset
     background-color: steelblue;
 }
 
-.selectEditoriales
-{
-    display: flex;
-    padding: 15px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background-color: darkorange;
-    height: 5%;
-    width: 25%;
-    margin: 5 auto;
-}
+/*  */
 
 table,
 header h1,
 .group-form,
 #botonera input,
-.seccion-tabla h2
+.seccion-tabla h2,
+#fieldset-tabla,
+.selectEditoriales,
+#divFiltros label
 {
     box-shadow: 5px 5px 2px 0px rgba(0, 0, 0, 1);
-}
-
-.seccion-tabla .selectEditoriales
-{
-    text-align: left;
 }
 
 .loader
