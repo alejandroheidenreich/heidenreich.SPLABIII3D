@@ -16,7 +16,7 @@ function crearSuperHeroes(superheroes, principal, campoOculto, imgPropiedades) {
         const div = document.createElement('div');
         img.setAttribute('src', imgPropiedades[principal]);
         img.setAttribute('alt', principal);
-        img.classList.add('imgCard');
+        img.classList.add('imgCards');
 
         h2.textContent = superheroes[principal];
         div.appendChild(img);
@@ -36,7 +36,7 @@ function crearSuperHeroes(superheroes, principal, campoOculto, imgPropiedades) {
 
         img.setAttribute('src', imgPropiedades[propiedad]);
         img.setAttribute('alt', propiedad);
-        img.classList.add('imgCard');
+        img.classList.add('img-fluid');
         //fieldset.appendChild(img);
         div.appendChild(img);
         p.textContent = capitalizeString(propiedad) + ": " + superheroes[propiedad];

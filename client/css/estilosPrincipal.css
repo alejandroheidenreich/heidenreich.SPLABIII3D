@@ -29,6 +29,7 @@ header nav
     text-align: right;
     margin-right: 35px;
     margin-top: 35px;
+
 }
 
 header p
@@ -42,6 +43,8 @@ header p
 
 nav ul
 {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
 }
 
@@ -62,10 +65,10 @@ a:hover
 {
     color: white;
     font-size: 110%;
-    border: 2px solid lightgray;
+    border: 2px solid darkorange;
 }
 
-.imgCard
+fieldset img
 {
     padding-right: 10%;
     padding-left: 5%;
@@ -83,8 +86,9 @@ a:hover
 
 .anuncio
 {
-    align-items: center;
+    /* width: 150%; */
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -95,7 +99,10 @@ a:hover
 
 .anuncio fieldset
 {
-    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 35%;
     background-color: darkorange;
     margin-bottom: 2%;
     border: 5px solid #FF3D00;
