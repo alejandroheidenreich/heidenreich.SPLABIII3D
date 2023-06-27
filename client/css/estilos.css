@@ -255,11 +255,13 @@ select option
 {
     background-color: darkorange;
     text-align: center;
+    justify-content: space-between;
 }
 
 #fieldset-tabla input
 {
     margin-right: 3%;
+    margin-left: 3%;
 }
 
 
