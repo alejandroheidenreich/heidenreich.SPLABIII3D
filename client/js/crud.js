@@ -1,9 +1,9 @@
 import { actualizarTabla,crearSpinner,clearTablaSeccion} from './tabla.js';
-import { SuperHeroe, ordenarListaPorCriterio, obtenerUltimoID } from './superheroe.js';
+import { SuperHeroe, ordenarListaPorCriterio} from './superheroe.js';
 import { crearFormulario } from './formulario.js';
-import { getAllinTableAjax, getAllAjax, getOneAjax, createSuperHeroeAjax, updateSuperHeroeAjax, deleteSuperHeroeAjax } from './ajax.js';
-import { getAllinTableAxios, getAllAxios, getOneAxios, createSuperHeroeAxios, updateSuperHeroeAxios, deleteSuperHeroeAxios } from './axios.js';
-import { getAllinTableFetch, getAllFetch, getOneFetch, createSuperHeroeFetch, updateSuperHeroeFetch, deleteSuperHeroeFetch } from './fetch.js';
+import { createSuperHeroeAjax, updateSuperHeroeAjax, deleteSuperHeroeAjax } from './ajax.js';
+// import { getAllinTableAxios, getAllAxios, getOneAxios, createSuperHeroeAxios, updateSuperHeroeAxios, deleteSuperHeroeAxios } from './axios.js';
+import { getAllinTableFetch, getAllFetch, getOneFetch} from './fetch.js';
 
 
 //actualizarStorage('armas', listaArmas);
@@ -17,21 +17,13 @@ const identificador = "id";
 const titulo = "Lista de Super Heroes";
 const spinnerTabla = crearSpinner($seccionTabla);
 let ordenActivo;
-
-
-//getAllinTableAjax(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-//getAllinTableAxios(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
 getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-
-
-
 const formatoSuperHeroe = { id: '', nombre: 'asd', alias: 'asd', editorial: 'asd', fuerza: '100', arma: 'Armadura' }
 const spinnerForm = document.createElement('span');
 spinnerForm.classList.add('loader');
 spinnerForm.id = "spinnerForm";
 spinnerForm.style.setProperty("display", "none");
 $seccionFormulario.appendChild(spinnerForm);
-
 async function prepararForm() {
     const armas = await getAllFetch(URLARMAS);
     $seccionFormulario.appendChild(crearFormulario("Informacion del SuperHeroe", formatoSuperHeroe, identificador, "arma", armas, "editorial", ["Marvel", "DC"], ["./img/marvel.png", "./img/dc.png"]));
@@ -39,7 +31,6 @@ async function prepararForm() {
     const $tituloForm = document.getElementById('titulo-form');
     const $formFielset = document.querySelector('fieldset');
     resetFormulario($formulario);
-
 }
 prepararForm();
 
@@ -77,12 +68,7 @@ async function handlerSelectedTD(e) {
     $formulario.style.setProperty("display", "none");
     $tituloForm.style.setProperty("display", "none");
     $formFielset.style.setProperty("display", "none");
-
-    //getOneAjax(URL, selector, cargarFormulario, $formulario);
-    //getOneAxios(URL, selector, cargarFormulario, $formulario);
     getOneFetch(URL, selector, cargarFormulario, $formulario);
-    //cargarFormulario($formulario, selectedSuperHeroe);
-
 }
 
 async function handlerSelectedTH(e) {
@@ -141,41 +127,22 @@ function handlerSubmit() {
 
 async function handlerCreate(nuevoSuper) {
     console.log("Creando");
-    //createSuperHeroeAjax(URL, nuevoSuper);
-    ///createSuperHeroeAxios(URL, nuevoSuper)
-    createSuperHeroeFetch(URL, nuevoSuper);
-    //getAllinTableAjax(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-    //getAllinTableAxios(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-    //getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
+    createSuperHeroeAjax(URL, nuevoSuper);
 }
 
 function handlerUpdate(editSuper) {
     console.log("Actualizando");
-    //updateSuperHeroeAjax(URL, editSuper);
-    //updateSuperHeroeFetch(URL, editSuper);
-    updateSuperHeroeAxios(URL, editSuper);
-    //getAllinTableAjax(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-    //getAllinTableAxios(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-    //getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-
+    updateSuperHeroeAjax(URL, editSuper);
 }
 
 function handlerDelete(id) {
     console.log("Eliminado");
-    //deleteSuperHeroeAjax(URL, id);
-    deleteSuperHeroeAxios(URL, id);
-    //deleteSuperHeroeFetch(URL, id);
-    //getAllinTableAjax(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-    //getAllinTableAxios(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-    //getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
+    deleteSuperHeroeAjax(URL, id);
 }
 
-// function actualizarStorage(clave, data) {
-//     localStorage.setItem(clave, JSON.stringify(data));
-// }
+
 
 function cargarFormulario(formulario, superheroe) {
-    //const $formulario = document.querySelector('form');
     const $tituloForm = document.getElementById('titulo-form');
     const $formFielset = document.querySelector('fieldset');
     spinnerForm.style.setProperty("display", "none");
@@ -217,19 +184,3 @@ function resetFormulario(formulario) {
     if (document.getElementById('boton-cancelar')) $botonera.removeChild(document.getElementById('boton-cancelar'));
     formulario.reset();
 }
-
-
-// chrome.runtime.addListener((request, sender, sendResponse) => {
-//     // Verificar si la conexión del canal de mensajes está abierta
-//     if (chrome.runtime.lastError) {
-//       //console.error(chrome.runtime.lastError.message);
-//       return;
-//     }
-  
-//     // Procesar el mensaje y enviar una respuesta asincrónica
-//     // ...
-  
-//     // Enviar la respuesta asincrónica
-//     sendResponse(response);
-//   });
-
