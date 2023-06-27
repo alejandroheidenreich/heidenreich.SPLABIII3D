@@ -106,16 +106,19 @@ function crearInputRadio(propiedad, arrayRadio, imgRadio) {
 
     for (let index = 0; index < arrayRadio.length; index++) {
         const radio = document.createElement('input');
+        const label = document.createElement('label');
+        const img = document.createElement('img');
         radio.setAttribute('name', `radio${capitalizeString(propiedad)}`);
         radio.setAttribute('type', 'radio');
         radio.setAttribute('id', arrayRadio[index]);
         radio.setAttribute('value', arrayRadio[index])
-        const img = document.createElement('img');
         img.setAttribute('src', imgRadio[index]);
         img.setAttribute('alt', arrayRadio[index]);
         img.classList.add('imgForm');
+        label.setAttribute('for', arrayRadio[index]);
+        label.appendChild(img);
         fieldset.appendChild(radio);
-        fieldset.appendChild(img);
+        fieldset.appendChild(label);
     }
     fieldset.setAttribute('id', 'radioEditorial');
     fieldset.classList.add('radioEditorial');

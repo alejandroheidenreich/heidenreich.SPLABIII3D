@@ -63,7 +63,7 @@ function crearHeaderSeccionTabla(contenedor, data, colorHeader, identidicador, t
     const promedioTitulo = document.createElement('h3');
     const prom = document.createElement('label');
     prom.id = "promedioFuerza";
-    const fieldset = crearFieldSetCheckboxs(divFiltros, divTabla, atributos, colorHeader, identidicador, titulo);
+    const fieldset = crearFieldSetCheckboxs(divTabla, atributos, colorHeader, identidicador, titulo);
     const select = CrearSelector(selectedOption, divTabla, prom, colorHeader, identidicador, titulo);
     h2.textContent = titulo;
     filtro.textContent = "FILTRAR POR:";
@@ -117,7 +117,7 @@ function actualizarPorEditorial(data, seleccion) {
     return listaFiltrada;
 }
 
-function crearFieldSetCheckboxs(divFiltros, divTabla, atributos, colorHeader, identidicador, titulo) {
+function crearFieldSetCheckboxs(divTabla, atributos, colorHeader, identidicador, titulo) {
     const fieldset = document.createElement('fieldset');
     fieldset.id = 'fieldset-tabla';
     const columns = ["Nombre", "Alias", "Editorial", "Fuerza", "Arma"];
