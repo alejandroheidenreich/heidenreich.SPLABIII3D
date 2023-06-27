@@ -11,7 +11,6 @@ export const crearTabla = (data, colorHeader, identidicador, atributos) => {
 };
 
 const crearCabecera = (elemento, color, identidicador, atributos) => {
-    console.log(elemento);
     const tHead = document.createElement('thead');
     const headRow = document.createElement('tr');
     headRow.style.setProperty("background-color", color);
@@ -49,7 +48,6 @@ export const actualizarTabla = (contenedor, data, colorHeader, identidicador, ti
     if (!Array.isArray(data) || data.length < 1) return null;
     while (contenedor.hasChildNodes()) {
         contenedor.removeChild(contenedor.firstChild);
-        console.log(contenedor.firstChild);
     }
     crearHeaderSeccionTabla(contenedor, data, colorHeader, identidicador, titulo, selectedOption, atributos)
     contenedor.appendChild(crearTabla(data, colorHeader, identidicador, atributos));
@@ -175,3 +173,9 @@ export function crearSpinner($seccionTabla) {
     return spinnerTabla;
 }
 
+
+export function clearTablaSeccion(contenedor) {
+    while (contenedor.hasChildNodes()) {
+        contenedor.removeChild(contenedor.firstChild);
+    }
+}

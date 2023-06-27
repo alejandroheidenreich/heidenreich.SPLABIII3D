@@ -1,4 +1,4 @@
-import { actualizarTabla,crearSpinner} from './tabla.js';
+import { actualizarTabla,crearSpinner,clearTablaSeccion} from './tabla.js';
 import { SuperHeroe, ordenarListaPorCriterio, obtenerUltimoID } from './superheroe.js';
 import { crearFormulario } from './formulario.js';
 import { getAllinTableAjax, getAllAjax, getOneAjax, createSuperHeroeAjax, updateSuperHeroeAjax, deleteSuperHeroeAjax } from './ajax.js';
@@ -88,9 +88,8 @@ async function handlerSelectedTD(e) {
 async function handlerSelectedTH(e) {
     const selector = e.target.textContent;
     console.log(selector);
-    const tabla = document.getElementById('tablita');
-    spinnerTabla.style.setProperty("display", "block");
-    tabla.style.setProperty("display", "none");
+    const tabla = clearTablaSeccion($seccionTabla);
+    crearSpinner($seccionTabla);
     const superheroes = await getAllFetch(URL);
     ordenarListaPorCriterio(superheroes, selector, selector == ordenActivo);
     if (selector == ordenActivo) {
@@ -99,7 +98,6 @@ async function handlerSelectedTH(e) {
         ordenActivo = selector;
     }
     actualizarTabla($seccionTabla, superheroes, colorHeader, identificador, titulo);
-    tabla.style.setProperty("display", "block");
     spinnerTabla.style.setProperty("display", "none");
 }
 
@@ -147,7 +145,7 @@ async function handlerCreate(nuevoSuper) {
     ///createSuperHeroeAxios(URL, nuevoSuper)
     createSuperHeroeFetch(URL, nuevoSuper);
     //getAllinTableAjax(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-    getAllinTableAxios(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
+    //getAllinTableAxios(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
     //getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
 }
 
@@ -158,7 +156,7 @@ function handlerUpdate(editSuper) {
     updateSuperHeroeAxios(URL, editSuper);
     //getAllinTableAjax(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
     //getAllinTableAxios(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-    getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
+    //getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
 
 }
 
@@ -169,7 +167,7 @@ function handlerDelete(id) {
     //deleteSuperHeroeFetch(URL, id);
     //getAllinTableAjax(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
     //getAllinTableAxios(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
-    getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
+    //getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
 }
 
 // function actualizarStorage(clave, data) {
