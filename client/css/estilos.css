@@ -189,7 +189,7 @@ legend,
     border-radius: 10px;
     background-color: darkorange;
     margin-bottom: 15px;
-} 
+}
 
 main
 {
@@ -199,7 +199,8 @@ main
     align-items: center;
     flex: 1;
 }
- .seccion-formulario,
+
+.seccion-formulario,
 .seccion-tabla
 {
     display: flex;
@@ -314,14 +315,15 @@ fieldset
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
+    padding: 35px;
     width: 100%;
     height: 55px;
 }
 
 .radioEditorial div
 {
-   padding: 5px;
-   margin: 5px auto;
+    padding: 5px;
+    margin: 5px auto;
 }
 
 #botonera
@@ -336,21 +338,21 @@ fieldset
     margin: 5px;
 }
 
-#divCheckbox{
+#divCheckbox
+{
     margin: 5px;
 }
 
-/* .selectEditoriales
+.selectEditoriales
 {
     text-align: left;
-    padding: 5px;
     border: 2px solid black;
     border-radius: 10px;
     background-color: darkorange;
     height: 5%;
     width: 25%;
     margin-bottom: 3%;
-} */
+}
 
 /*
 
