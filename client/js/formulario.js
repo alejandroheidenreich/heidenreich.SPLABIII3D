@@ -55,6 +55,8 @@ const crearForm = (elemento, ocultar, propiedadSelect = false, arraySelect = nul
     }
     form.appendChild(divCampos);
     form.appendChild(crearBotonera());
+    form.classList.add("form-floating");
+    form.classList.add("mb-3");
     return form;
 }
 
@@ -64,11 +66,13 @@ function crearInputText(propiedad) {
     input.setAttribute('name', `txt${capitalizeString(propiedad)}`);
     input.setAttribute('placeholder', `Ingrese ${capitalizeString(propiedad)}`);
     input.setAttribute('autocomplete', 'off');
+    input.classList.add('form-control');
     return input;
 }
 
 function crearInputRange(propiedad) {
     const input = document.createElement('input');
+    input.classList.add('form-range');
     input.setAttribute('type', 'range');
     input.setAttribute('name', `txt${capitalizeString(propiedad)}`);
     input.setAttribute('min', "0");
@@ -79,10 +83,13 @@ function crearInputRange(propiedad) {
 
 function crearInputRadio(propiedad, arrayRadio, imgRadio) {
     const fieldset = document.createElement('fieldset');
+    
     for (let index = 0; index < arrayRadio.length; index++) {
         const radio = document.createElement('input');
         const label = document.createElement('label');
         const img = document.createElement('img');
+        radio.classList.add('form-check-input');
+        label.classList.add('form-check-label');
         radio.setAttribute('name', `radio${capitalizeString(propiedad)}`);
         radio.setAttribute('type', 'radio');
         radio.setAttribute('id', arrayRadio[index]);
@@ -103,6 +110,7 @@ function crearInputRadio(propiedad, arrayRadio, imgRadio) {
 function crearSelect(propiedad, arraySelect) {
     const select = document.createElement('select');
     select.setAttribute('name', `select${capitalizeString(propiedad)}`);
+    select.classList.add('form-select');
     for (let index = 0; index < arraySelect.length; index++) {
         const option = document.createElement('option');
         option.setAttribute('value', arraySelect[index]);
@@ -120,16 +128,18 @@ function crearBotonera() {
     submit.setAttribute('id', "boton-accion");
     submit.setAttribute('type', 'submit');
     submit.setAttribute('value', 'Cargar');
-    submit.style.backgroundImage = 'url(./img/cargar.svg)';
-    submit.style.backgroundSize = '16px 16px';
-    submit.style.backgroundPosition = 'left';
-    submit.style.backgroundRepeat = 'no-repeat';
-    submit.style.paddingLeft = '10px';
-    submit.classList.add('accion');
+    // submit.style.backgroundImage = 'url(./img/cargar.svg)';
+    // submit.style.backgroundSize = '16px 16px';
+    // submit.style.backgroundPosition = 'left';
+    // submit.style.backgroundRepeat = 'no-repeat';
+    // submit.style.paddingLeft = '10px';
+    submit.classList.add('btn');
+    submit.classList.add('btn-success');
     button.setAttribute('id', "eliminar");
     button.setAttribute('type', 'button');
     button.setAttribute('value', 'Eliminar');
-    button.classList.add('eliminar');
+    button.classList.add('btn');
+    button.classList.add('btn-danger');
     p.appendChild(submit);
     p.appendChild(button);
     p.setAttribute('id', "botonera");

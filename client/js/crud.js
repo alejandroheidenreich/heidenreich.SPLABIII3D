@@ -1,9 +1,9 @@
-import { actualizarTabla,crearSpinner,clearTablaSeccion} from './tabla.js';
-import { SuperHeroe, ordenarListaPorCriterio} from './superheroe.js';
+import { actualizarTabla, crearSpinner, clearTablaSeccion } from './tabla.js';
+import { SuperHeroe, ordenarListaPorCriterio } from './superheroe.js';
 import { crearFormulario } from './formulario.js';
 import { createSuperHeroeAjax, updateSuperHeroeAjax, deleteSuperHeroeAjax } from './ajax.js';
 // import { getAllinTableAxios, getAllAxios, getOneAxios, createSuperHeroeAxios, updateSuperHeroeAxios, deleteSuperHeroeAxios } from './axios.js';
-import { getAllinTableFetch, getAllFetch, getOneFetch} from './fetch.js';
+import { getAllinTableFetch, getAllFetch, getOneFetch } from './fetch.js';
 
 
 //actualizarStorage('armas', listaArmas);
@@ -114,6 +114,7 @@ function handlerSubmit() {
                 "fuerza": parseInt(txtFuerza.value),
                 "arma": selectArma.value
             };
+            const createdSuper = new SuperHeroe(1, txtNombre.value, txtAlias.value, radioEditorial.value, parseInt(txtFuerza.value), selectArma.value);
             if (confirm("¿Desea cargar el SuperHeroe?")) handlerCreate(data/*newSuper*/);
         } else {
             const updatedSuper = new SuperHeroe(parseInt(txtId.value), txtNombre.value, txtAlias.value, radioEditorial.value, parseInt(txtFuerza.value), selectArma.value);
@@ -155,7 +156,8 @@ function cargarFormulario(formulario, superheroe) {
         botonCancelar.type = 'reset';
         botonCancelar.value = 'Cancelar';
         botonCancelar.id = 'boton-cancelar';
-        botonCancelar.classList.add('cancelar');
+        botonCancelar.classList.add('btn');
+        botonCancelar.classList.add('btn-primary');
         $botonera.appendChild(botonCancelar);
     }
     const $titulo = document.getElementById("titulo-form");

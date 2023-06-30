@@ -3,6 +3,9 @@ const URL = 'http://localhost:3000/superheroes';
 
 export const crearTabla = (data, colorHeader, identidicador, atributos) => {
     const tabla = document.createElement('table');
+    tabla.classList.add('table');
+    tabla.classList.add("table-dark");
+    tabla.classList.add('table-hover');
     tabla.setAttribute('id', 'tablita');
     if (!Array.isArray(data) || data.length < 1) return null;
     tabla.appendChild(crearCabecera(data[0], colorHeader, identidicador, atributos));
@@ -17,7 +20,8 @@ const crearCabecera = (elemento, color, identidicador, atributos) => {
     for (const propiedad in elemento) {
         if (propiedad === identidicador || !(atributos.includes(propiedad))) continue;
         const th = document.createElement('th');
-        th.textContent = propiedad;
+        th.setAttribute('scope', "col");
+        th.textContent = propiedad.toLocaleUpperCase();
         headRow.appendChild(th);
     }
     tHead.appendChild(headRow);
@@ -94,7 +98,7 @@ function CrearSelector(selectedOption, divTabla, prom, colorHeader, identidicado
         if (element == selectedOption) option.selected = true;
         select.appendChild(option);
     });
-    select.classList.add('selectEditoriales');
+    select.classList.add('form-select');
     select.addEventListener('change', async (e) => {
         const $seccionTabla = document.getElementById('tabla');
         const $tabla = document.getElementById('tablita');
@@ -124,10 +128,17 @@ function crearFieldSetCheckboxs(divTabla, atributos, colorHeader, identidicador,
     fieldset.id = 'fieldset-tabla';
     const columns = ["Nombre", "Alias", "Editorial", "Fuerza", "Arma"];
     columns.forEach(element => {
+        const div = document.createElement('div');
         const checkbox = document.createElement('input');
         const label = document.createElement('label');
+        div.setAttribute('id','divCheckbox');
+        div.classList.add('form-check');
+        div.classList.add('form-switch');
         checkbox.setAttribute('type', "checkbox");
         checkbox.setAttribute('value', element);
+        checkbox.setAttribute('id', element);
+        checkbox.classList.add('form-check-input');
+        label.setAttribute('for', element);
         if ((atributos.includes(element.toLocaleLowerCase()))) checkbox.setAttribute('checked', true);
         checkbox.addEventListener('change', async (e) => {
             const $seccionTabla = document.getElementById('tabla');
@@ -145,8 +156,9 @@ function crearFieldSetCheckboxs(divTabla, atributos, colorHeader, identidicador,
             $tabla.style.setProperty("display", "block");
         });
         label.textContent = element;
-        fieldset.appendChild(label);
-        fieldset.appendChild(checkbox);
+        div.appendChild(label);
+        div.appendChild(checkbox);
+        fieldset.appendChild(div);
     });
     return fieldset;
 }

@@ -114,6 +114,8 @@ footer p
     margin-right: 1%;
 }
 
+
+/* 
 table
 {
     border-collapse: collapse;
@@ -146,11 +148,7 @@ tbody tr:hover
     color: #FFF;
 }
 
-th:hover
-{
-    background-color: #FF3D00;
-    cursor: pointer;
-}
+
 
 th:hover,
 tr:hover,
@@ -178,7 +176,7 @@ th
 {
     background-color: white;
 }
-
+*/
 header h1,
 legend,
 .seccion-tabla h2,
@@ -186,11 +184,12 @@ legend,
 {
     display: inline-block;
     text-align: left;
-    padding: 5px;
+    padding: 15px;
     border: 2px solid black;
     border-radius: 10px;
     background-color: darkorange;
-}
+    margin-bottom: 15px;
+} 
 
 main
 {
@@ -200,8 +199,7 @@ main
     align-items: center;
     flex: 1;
 }
-
-.seccion-formulario,
+ .seccion-formulario,
 .seccion-tabla
 {
     display: flex;
@@ -226,14 +224,123 @@ main
 
 }
 
-.seccion-tabla h3
+th:hover
 {
-    margin-bottom: 1%;
-    padding-right: 0;
+    background-color: #FF3D00;
+    cursor: pointer;
+}
+
+.group-form
+{
+    background-color: dimgray;
+    padding: 9px;
+}
+
+.imgForm
+{
+    padding-right: 10%;
+    padding-left: 5%;
+    width: 40px;
+    height: 40px;
 
 }
 
-.selectEditoriales
+/* .input-img
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.input-img img
+{
+    padding-right: 10%;
+    padding-left: 5%; 
+    width: 40px;
+    height: 40px;
+
+} 
+*/
+
+
+
+#tabla span
+{
+    margin: 250px 500px;
+}
+
+
+#divFiltros
+{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 7px;
+}
+
+
+#divFiltros input
+{
+    width: 12%;
+    height: 5%;
+    margin: 0 auto;
+}
+
+#divFiltros h3
+{
+    margin: 0 auto;
+    font-size: medium;
+    margin-top: 9px;
+    padding: 0;
+}
+
+
+fieldset
+{
+    border: 2px solid black;
+}
+
+#fieldset-tabla
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: darkorange;
+
+}
+
+.radioEditorial
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    height: 55px;
+}
+
+.radioEditorial div
+{
+   padding: 5px;
+   margin: 5px auto;
+}
+
+#botonera
+{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+}
+
+#botonera input
+{
+    margin: 5px;
+}
+
+#divCheckbox{
+    margin: 5px;
+}
+
+/* .selectEditoriales
 {
     text-align: left;
     padding: 5px;
@@ -243,7 +350,20 @@ main
     height: 5%;
     width: 25%;
     margin-bottom: 3%;
+} */
+
+/*
+
+
+
+.seccion-tabla h3
+{
+    margin-bottom: 1%;
+    padding-right: 0;
+
 }
+
+
 
 select option
 {
@@ -264,14 +384,6 @@ select option
     margin-left: 3%;
 }
 
-
-
-.group-form
-{
-    background-color: dimgray;
-    padding: 5px;
-}
-
 .group-form .datos-form input,
 select
 {
@@ -280,46 +392,12 @@ select
     height: 20px;
 }
 
-.radioEditorial
-{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0 auto;
-
-}
-
-
-.input-img
-{
-    display: flex;
-    flex-direction: row;
-
-
-}
-
-.input-img img
-{
-    padding-right: 10%;
-    padding-left: 5%;
-    width: 40px;
-    height: 40px;
-
-}
-
 form fieldset
 {
     width: 80%;
 }
 
-.imgForm
-{
-    padding-right: 10%;
-    padding-left: 5%;
-    width: 40px;
-    height: 40px;
 
-}
 
 form img
 {
@@ -357,39 +435,8 @@ form img
 }
 
 
-fieldset
-{
-    border: 1px solid black;
-}
-
-#tabla span
-{
-    margin: 250px 500px;
-}
 
 
-#divFiltros
-{
-    display: flex;
-    flex-direction: row;
-
-}
-
-
-#divFiltros input
-{
-    width: 12%;
-    height: 5%;
-    margin: 0 auto;
-}
-
-#divFiltros h3
-{
-    margin: 0 auto;
-    font-size: medium;
-    margin-top: 9px;
-    padding: 0;
-}
 
 
 .accion,
@@ -425,7 +472,6 @@ header h1,
 #botonera input,
 .seccion-tabla h2,
 #fieldset-tabla,
-.selectEditoriales,
 #divFiltros input
 {
     box-shadow: 5px 5px 2px 0px rgba(0, 0, 0, 1);
