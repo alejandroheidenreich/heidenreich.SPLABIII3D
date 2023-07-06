@@ -71,14 +71,6 @@
       "editorial": "DC",
       "fuerza": 1000,
       "arma": "Espada"
-    },
-    {
-      "nombre": "Habi",
-      "alias": "El Destructor de Refugios",
-      "editorial": "Marvel",
-      "fuerza": 357,
-      "arma": "Arma de Fuego",
-      "id": 13
     }
   ],
   "armas": [
