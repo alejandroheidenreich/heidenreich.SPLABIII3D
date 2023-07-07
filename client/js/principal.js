@@ -1,5 +1,5 @@
 // import { Anuncio } from './js/anuncio.js';
-import { crearListaSuperHeroes } from './cards.js';
+import { crearListaSuperHeroes } from './cards_boostrap.js';
 import { getAllAjax } from './ajax.js';
 import { getAllAxios } from './axios.js';
 import { getAllFetch } from './fetch.js';

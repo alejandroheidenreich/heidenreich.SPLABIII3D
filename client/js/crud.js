@@ -17,7 +17,8 @@ const identificador = "id";
 const titulo = "Lista de Super Heroes";
 const spinnerTabla = crearSpinner($seccionTabla);
 let ordenActivo;
-getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla);
+const columnasSeleccionadas = JSON.parse(localStorage.getItem('columnas')) || ['nombre', 'alias', 'editorial', 'fuerza', 'arma'];
+getAllinTableFetch(URL, actualizarTabla, $seccionTabla, colorHeader, identificador, titulo, spinnerTabla, columnasSeleccionadas);
 const formatoSuperHeroe = { id: '', nombre: 'asd', alias: 'asd', editorial: 'asd', fuerza: '100', arma: 'Armadura' }
 const spinnerForm = document.createElement('span');
 spinnerForm.classList.add('loader');

@@ -9,9 +9,26 @@ body
 body
 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+}
+
+footer
+{
+    background-color: dimgray;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+}
+
+footer p
+{
+    text-align: right;
+    margin-right: 1%;
 }
 
 header
@@ -38,19 +55,6 @@ header nav
 
 }
 
-/* a
-{
-    text-decoration: none;
-    color: black;
-}
-
-a:hover
-{
-    color: white;
-    font-size: 110%;
-    border: 2px solid lightgray;
-} */
-
 
 .encabezado
 {
@@ -70,28 +74,13 @@ a:hover
     padding-top: 3%;
 }
 
-footer
-{
-    background-color: dimgray;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0;
-    width: 100%;
-    height: 50px;
-    bottom: 0;
-}
-
-footer p
-{
-    text-align: right;
-    margin-right: 1%;
-}
 
 
 header h1,
 legend,
 .seccion-tabla h2,
-#divFiltros input
+#divFiltros input,
+#divMaxMin input
 {
     display: inline-block;
     text-align: left;
@@ -171,14 +160,16 @@ th:hover
     margin-bottom: 3%;
 }
 
-#divFiltros input
+#divFiltros input,
+#divMaxMin input
 {
     width: 70%;
     height: 80%;
     margin: 0 auto;
 }
 
-#divFiltros label
+#divFiltros label,
+#divMaxMin label
 {
     margin: 0 auto;
     font-size: medium;
@@ -247,6 +238,7 @@ header h1,
 .seccion-tabla h2,
 #fieldset-tabla,
 #divFiltros input,
+#divMaxMin input,
 #divFiltros #selectEditorial
 {
     box-shadow: 5px 5px 2px 0px rgba(0, 0, 0, 1);

@@ -57,20 +57,20 @@
       "arma": "Espada"
     },
     {
-      "id": 10,
-      "nombre": "Roberto Perez",
-      "alias": "Argentoman",
-      "editorial": "DC",
-      "fuerza": 0,
-      "arma": "Arma de Fuego"
-    },
-    {
       "id": 11,
       "nombre": "Leo Messi",
       "alias": "The G.O.A.T.",
       "editorial": "DC",
       "fuerza": 1000,
       "arma": "Espada"
+    },
+    {
+      "nombre": "asdas",
+      "alias": "dasdasd",
+      "editorial": "DC",
+      "fuerza": 536,
+      "arma": "Martillo",
+      "id": 12
     }
   ],
   "armas": [
