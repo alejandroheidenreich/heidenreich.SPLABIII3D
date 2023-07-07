@@ -85,6 +85,9 @@ function crearInputRadio(propiedad, arrayRadio, imgRadio) {
     const fieldset = document.createElement('fieldset');
     
     for (let index = 0; index < arrayRadio.length; index++) {
+        const div = document.createElement('div');
+        div.classList.add('form-check')
+        div.classList.add('form-check-inline')
         const radio = document.createElement('input');
         const label = document.createElement('label');
         const img = document.createElement('img');
@@ -99,11 +102,13 @@ function crearInputRadio(propiedad, arrayRadio, imgRadio) {
         img.classList.add('imgForm');
         label.setAttribute('for', arrayRadio[index]);
         label.appendChild(img);
-        fieldset.appendChild(radio);
-        fieldset.appendChild(label);
+        div.appendChild(radio);
+        div.appendChild(label);
+        fieldset.appendChild(div)
     }
     fieldset.setAttribute('id', 'radioEditorial');
     fieldset.classList.add('radioEditorial');
+
     return fieldset;
 }
 
@@ -128,11 +133,6 @@ function crearBotonera() {
     submit.setAttribute('id', "boton-accion");
     submit.setAttribute('type', 'submit');
     submit.setAttribute('value', 'Cargar');
-    // submit.style.backgroundImage = 'url(./img/cargar.svg)';
-    // submit.style.backgroundSize = '16px 16px';
-    // submit.style.backgroundPosition = 'left';
-    // submit.style.backgroundRepeat = 'no-repeat';
-    // submit.style.paddingLeft = '10px';
     submit.classList.add('btn');
     submit.classList.add('btn-success');
     button.setAttribute('id', "eliminar");
